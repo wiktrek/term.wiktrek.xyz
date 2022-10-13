@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,
-  faFile,
+  faPoo,
   faScrewdriverWrench,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -23,8 +23,8 @@ function Navbar() {
               className="sidebar-icon"
             />
           </Link>
-          <Link href="/code">
-            <FontAwesomeIcon icon={faFile} className="sidebar-icon" />
+          <Link href="/poo">
+            <FontAwesomeIcon icon={faPoo} className="sidebar-icon" />
           </Link>
         </div>
       </main>
