@@ -2,7 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
-  .sidebar-icon {
-    @apply relative mx-auto mt-2 mb-2 flex h-12 w-12 items-center justify-center rounded-3xl bg-gray-600 text-green-300 shadow-lg transition-all duration-300 ease-linear hover:rounded-xl hover:bg-green-400 hover:text-white;
+  .nav {
+    @apply relative mx-6 mt-2 mb-2 flex;
+  }
+}
+@layer base {
+  body {
+    @apply bg-[url('/bg.png')];
   }
 }

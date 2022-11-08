@@ -4,29 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Navbar from "./components/navbar";
+import { useState } from "react";
 const Home: NextPage = () => {
+  const [input, setInput] = useState("");
   return (
     <>
       <Head>
-        <title>Info - wiktrek.xyz</title>
+        <title>Terminal - wiktrek.xyz</title>
         <meta name="description" content="info" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
         <Navbar />
-        <div>
-          <a>Projects:</a>
-        </div>
-
-        <div>
-          <a href="https://wiktrek.xyz" target="_blank" rel="noreferrer">
-            wiktrek.xyz
-          </a>
-        </div>
-
-        <div>
-          <a>Hi</a>
+        <div className="text-emerald-500">
+          <a>test</a>
+          <input className="border-none bg-transparent focus:border-none active:border-none" />
         </div>
       </main>
     </>

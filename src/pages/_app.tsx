@@ -1,11 +1,16 @@
 import "../styles/globals.css";
-import type { AppType } from "next/dist/shared/lib/utils";
-import Navbar from "./components/navbar";
+import type { AppType } from "next/app";
+import Head from "next/head";
+
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="" />
+      </Head>
+
       <Component {...pageProps} />
-      <Navbar />
     </>
   );
 };
