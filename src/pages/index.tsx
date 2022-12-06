@@ -13,7 +13,15 @@ const Home: NextPage = () => {
   }
   const [response, setResponse] = useState(["Try 'help'"]);
   let amount = 0;
-  const commands = ["help", "clear", "website", "links", "github"];
+  const commands = [
+    "help",
+    "clear",
+    "website",
+    "links",
+    "github",
+    "repo",
+    "projects",
+  ];
   function checkcommand() {
     if (!commands.includes(input)) {
       setInput("");
@@ -33,6 +41,8 @@ const Home: NextPage = () => {
     { cmd: "website", value: "https://wiktrek.xyz" },
     { cmd: "links", value: "https://link.wiktrek.xyz" },
     { cmd: "github", value: "https://github.com/wiktrek" },
+    { cmd: "repo", value: "https://github.com/wiktrek/term.wiktrek.xyz" },
+    { cmd: "projects", value: "https://wiktrek.xyz/projects" },
   ];
   return (
     <>
@@ -57,7 +67,9 @@ const Home: NextPage = () => {
                   if (
                     c.cmd === "links" ||
                     c.cmd === "github" ||
-                    c.cmd === "website"
+                    c.cmd === "website" ||
+                    c.cmd === "repo" ||
+                    c.cmd === "projects"
                   )
                     return (
                       <a
