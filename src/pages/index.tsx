@@ -6,7 +6,6 @@ const Home: NextPage = () => {
   function handleChange(event: { target: { value: SetStateAction<string> } }) {
     response.map(() => {
       amount++;
-      console.log(amount);
       return amount;
     });
     if (amount > 10) setResponse(["Try 'help'"]);
@@ -14,22 +13,26 @@ const Home: NextPage = () => {
   }
   const [response, setResponse] = useState(["Try 'help'"]);
   let amount = 0;
-  let commandResponse = "";
-  const commands = ["help", "clear", "website"];
+  const commands = ["help", "clear", "website", "links"];
   function checkcommand() {
     if (!commands.includes(input)) {
       setInput("");
-      setResponse([...response, `Command not found: ${input}. Try 'help`]);
+      setResponse([...response, `Command not found: ${input}. Try 'help'`]);
       return;
     }
-
-    if (input === "help") {
-      commandResponse = commands.toString();
-      console.log(commandResponse);
+    if (input === "clear") {
+      setResponse(["Try 'help'"]);
+      setInput("");
+      return;
     }
     setResponse([...response, input]);
     setInput("");
   }
+  const cmd = [
+    { cmd: "help", value: `${commands.toString()}` },
+    { cmd: "website", value: "https://wiktrek.xyz" },
+    { cmd: "links", value: "https://link.wiktrek.xyz" },
+  ];
   return (
     <>
       <Head>
@@ -38,7 +41,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="pl-5">
+      <main className="pl-5 text-2xl">
         <div>
           {response.map((r, index) => {
             return (
@@ -48,6 +51,19 @@ const Home: NextPage = () => {
                 <a className="text-green-600">info.wiktrek.xyz</a>
                 <a className="text-yellow-500">:$ ~ </a>
                 <a className="text-emerald-500">{r}</a>
+                {cmd.map((c) => {
+                  if (c.cmd !== r) return <p></p>;
+                  if (c.cmd === "links")
+                    return (
+                      <a className="text-yellow-500" href={c.value}>
+                        {c.value}
+                      </a>
+                    );
+
+                  <p key={index} className="text-yellow-500">
+                    {c.value}
+                  </p>;
+                })}
               </div>
             );
           })}
