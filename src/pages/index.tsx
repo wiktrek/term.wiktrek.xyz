@@ -59,10 +59,12 @@ const Home: NextPage = () => {
                         {c.value}
                       </a>
                     );
-
-                  <p key={index} className="text-yellow-500">
-                    {c.value}
-                  </p>;
+                  console.log("test");
+                  return (
+                    <p key={index} className="text-yellow-500">
+                      {c.value}
+                    </p>
+                  );
                 })}
               </div>
             );
