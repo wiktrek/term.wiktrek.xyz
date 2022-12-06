@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
-  .nav {
-    @apply relative mx-6 mt-2 mb-2 flex;
-  }
 }
 @layer base {
   body {
