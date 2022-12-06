@@ -4,27 +4,29 @@ import { SetStateAction, useState } from "react";
 const Home: NextPage = () => {
   const [input, setInput] = useState("");
   function handleChange(event: { target: { value: SetStateAction<string> } }) {
-    setInput(event.target.value);
-  }
-  const [response, setResponse] = useState(["help"]);
-
-  function checkcommand() {
-    let amount = 0;
     response.map(() => {
       amount++;
+      console.log(amount);
       return amount;
     });
-    if (amount === 10) setResponse(["help"]);
-    // const commands = "./data.json";
-    // if (!commands) return;
-    if (input === "") return;
-
-    if (input !== "help") {
-      setResponse([...response, `Command not found: ${input}. Try 'help`]);
-
+    if (amount > 10) setResponse(["Try 'help'"]);
+    setInput(event.target.value);
+  }
+  const [response, setResponse] = useState(["Try 'help'"]);
+  let amount = 0;
+  let commandResponse = "";
+  const commands = ["help", "clear", "website"];
+  function checkcommand() {
+    if (!commands.includes(input)) {
       setInput("");
+      setResponse([...response, `Command not found: ${input}. Try 'help`]);
+      return;
     }
-    return;
+
+    if (input === "help") {
+      commandResponse = commands.toString();
+      console.log(commandResponse);
+    }
     setResponse([...response, input]);
     setInput("");
   }
