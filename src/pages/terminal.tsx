@@ -7,6 +7,11 @@ const Home: NextPage = () => {
   function handleChange(event: { target: { value: SetStateAction<string> } }) {
     setInput(event.target.value);
   }
+  function checkcommand() {
+    const commands = "./data.json";
+    console.log(commands);
+  }
+
   return (
     <>
       <Head>
@@ -27,6 +32,11 @@ const Home: NextPage = () => {
             value={input}
             onChange={handleChange}
             className="border-none bg-transparent focus:outline-none focus:ring-0"
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                checkcommand();
+              }
+            }}
           />
         </div>
         <div>
