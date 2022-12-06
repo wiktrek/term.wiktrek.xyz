@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   }
   const [response, setResponse] = useState(["Try 'help'"]);
   let amount = 0;
-  const commands = ["help", "clear", "website", "links"];
+  const commands = ["help", "clear", "website", "links", "github"];
   function checkcommand() {
     if (!commands.includes(input)) {
       setInput("");
@@ -32,6 +32,7 @@ const Home: NextPage = () => {
     { cmd: "help", value: `${commands.toString()}` },
     { cmd: "website", value: "https://wiktrek.xyz" },
     { cmd: "links", value: "https://link.wiktrek.xyz" },
+    { cmd: "github", value: "https://github.com/wiktrek" },
   ];
   return (
     <>
@@ -53,9 +54,14 @@ const Home: NextPage = () => {
                 <a className="text-emerald-500">{r}</a>
                 {cmd.map((c) => {
                   if (c.cmd !== r) return <p></p>;
-                  if (c.cmd === "links")
+                  if (c.cmd === "links" || c.cmd === "github")
                     return (
-                      <a className="text-yellow-500" href={c.value}>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-yellow-500"
+                        href={c.value}
+                      >
                         {c.value}
                       </a>
                     );
