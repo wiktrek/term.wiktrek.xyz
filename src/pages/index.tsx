@@ -54,7 +54,11 @@ const Home: NextPage = () => {
                 <a className="text-emerald-500">{r}</a>
                 {cmd.map((c) => {
                   if (c.cmd !== r) return <p></p>;
-                  if (c.cmd === "links" || c.cmd === "github")
+                  if (
+                    c.cmd === "links" ||
+                    c.cmd === "github" ||
+                    c.cmd === "website"
+                  )
                     return (
                       <a
                         target="_blank"
