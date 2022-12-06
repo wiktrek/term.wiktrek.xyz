@@ -21,12 +21,12 @@ const Home: NextPage = () => {
           <a className="text-orange-500">guest</a>
           <a className="text-yellow-500">@</a>
           <a className="text-green-600">info.wiktrek.xyz</a>
-          <a className="text-yellow-500">:$ ~</a>
+          <a className="text-yellow-500">:$ ~ </a>
           <input
             type="text"
             value={input}
             onChange={handleChange}
-            className="border-none bg-transparent focus:ring-0"
+            className="border-none bg-transparent focus:outline-none focus:ring-0"
           />
         </div>
         <div>
