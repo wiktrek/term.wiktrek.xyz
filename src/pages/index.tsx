@@ -21,6 +21,8 @@ const Home: NextPage = () => {
     "github",
     "repo",
     "projects",
+    "yt",
+    "ig",
   ];
   function checkcommand() {
     if (!commands.includes(input)) {
@@ -37,12 +39,18 @@ const Home: NextPage = () => {
     setInput("");
   }
   const cmd = [
-    { cmd: "help", value: `${commands.toString()}` },
-    { cmd: "website", value: "https://wiktrek.xyz" },
-    { cmd: "links", value: "https://link.wiktrek.xyz" },
-    { cmd: "github", value: "https://github.com/wiktrek" },
-    { cmd: "repo", value: "https://github.com/wiktrek/term.wiktrek.xyz" },
-    { cmd: "projects", value: "https://wiktrek.xyz/projects" },
+    { cmd: "help", value: `${commands.toString()}`, link: false },
+    { cmd: "website", value: "https://wiktrek.xyz", link: true },
+    { cmd: "links", value: "https://link.wiktrek.xyz", link: true },
+    { cmd: "github", value: "https://github.com/wiktrek", link: true },
+    {
+      cmd: "repo",
+      value: "https://github.com/wiktrek/term.wiktrek.xyz",
+      link: true,
+    },
+    { cmd: "projects", value: "https://wiktrek.xyz/projects", link: true },
+    { cmd: "yt", value: "https://link.wiktrek.xyz/yt", link: true },
+    { cmd: "ig", value: "https://link.wiktrek.xyz/ig", link: true },
   ];
   return (
     <>
@@ -64,13 +72,7 @@ const Home: NextPage = () => {
                 <a className="text-emerald-500">{r}</a>
                 {cmd.map((c) => {
                   if (c.cmd !== r) return <p></p>;
-                  if (
-                    c.cmd === "links" ||
-                    c.cmd === "github" ||
-                    c.cmd === "website" ||
-                    c.cmd === "repo" ||
-                    c.cmd === "projects"
-                  )
+                  if (c.link === true)
                     return (
                       <a
                         target="_blank"
