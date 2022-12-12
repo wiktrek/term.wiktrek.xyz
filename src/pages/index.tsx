@@ -3,6 +3,7 @@ import Head from "next/head";
 import { SetStateAction, useState } from "react";
 const Home: NextPage = () => {
   const [input, setInput] = useState("");
+  const [response, setResponse] = useState(["Try 'help'"]);
   function handleChange(event: { target: { value: SetStateAction<string> } }) {
     response.map(() => {
       amount++;
@@ -11,7 +12,7 @@ const Home: NextPage = () => {
     if (amount > 10) setResponse(["Try 'help'"]);
     setInput(event.target.value);
   }
-  const [response, setResponse] = useState(["Try 'help'"]);
+
   let amount = 0;
   const commands = [
     "help",
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
     "projects",
     "yt",
     "ig",
+    "banner",
   ];
   function checkcommand() {
     if (!commands.includes(input)) {
@@ -43,6 +45,18 @@ const Home: NextPage = () => {
     { cmd: "website", value: "https://wiktrek.xyz", link: true },
     { cmd: "links", value: "https://link.wiktrek.xyz", link: true },
     { cmd: "github", value: "https://github.com/wiktrek", link: true },
+    {
+      cmd: "banner",
+      value: `
+██     ██ ██ ██   ██ ████████ ██████  ███████ ██   ██ 
+██     ██ ██ ██  ██     ██    ██   ██ ██      ██  ██  
+██  █  ██ ██ █████      ██    ██████  █████   █████  
+██ ███ ██ ██ ██  ██     ██    ██   ██ ██      ██  ██  
+ ███ ███  ██ ██   ██    ██    ██   ██ ███████ ██   ██ 
+                                                     
+`,
+      link: false,
+    },
     {
       cmd: "repo",
       value: "https://github.com/wiktrek/term.wiktrek.xyz",
@@ -83,6 +97,8 @@ const Home: NextPage = () => {
                         {c.value}
                       </a>
                     );
+                  if (c.cmd === "banner")
+                    return <pre className="text-yellow-500">{c.value}</pre>;
                   console.log("test");
                   return (
                     <p key={index} className="text-yellow-500">
