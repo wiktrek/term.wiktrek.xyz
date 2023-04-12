@@ -57,6 +57,8 @@ const Home: NextPage = () => {
 `,
       link: false,
     },
+    { cmd: "projects", value: "https://project.wiktrek.xyz", link: true },
+
     {
       cmd: "repo",
       value: "https://github.com/wiktrek/term.wiktrek.xyz",
