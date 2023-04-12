@@ -42,6 +42,7 @@ const Home: NextPage = () => {
   }
   const cmd = [
     { cmd: "help", value: `${commands.toString()}`, link: false },
+    { cmd: "guest", value: `guest@term.wiktrek.xyz`, link: false },
     { cmd: "website", value: "https://wiktrek.xyz", link: true },
     { cmd: "links", value: "https://link.wiktrek.xyz", link: true },
     { cmd: "github", value: "https://github.com/wiktrek", link: true },
@@ -64,7 +65,6 @@ const Home: NextPage = () => {
       value: "https://github.com/wiktrek/term.wiktrek.xyz",
       link: true,
     },
-    { cmd: "projects", value: "https://wiktrek.xyz/projects", link: true },
     { cmd: "yt", value: "https://link.wiktrek.xyz/yt", link: true },
     { cmd: "ig", value: "https://link.wiktrek.xyz/ig", link: true },
   ];
@@ -83,7 +83,7 @@ const Home: NextPage = () => {
               <div key={index}>
                 <a className="text-orange-500">guest</a>
                 <a className="text-yellow-500">@</a>
-                <a className="text-green-600">info.wiktrek.xyz</a>
+                <a className="text-green-600">term.wiktrek.xyz</a>
                 <a className="text-yellow-500">:$ ~ </a>
                 <a className="text-emerald-500">{r}</a>
                 {cmd.map((c) => {
@@ -115,7 +115,7 @@ const Home: NextPage = () => {
         <div className="text-emerald-500">
           <a className="text-orange-500">guest</a>
           <a className="text-yellow-500">@</a>
-          <a className="text-green-600">info.wiktrek.xyz</a>
+          <a className="text-green-600">term.wiktrek.xyz</a>
           <a className="text-yellow-500">:$ ~ </a>
           <input
             type="text"
