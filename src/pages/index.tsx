@@ -73,7 +73,6 @@ const Home: NextPage = () => {
       <Head>
         <title>Terminal - wiktrek.xyz</title>
         <meta name="description" content="info" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="pl-5 text-2xl">
@@ -91,6 +90,7 @@ const Home: NextPage = () => {
                   if (c.link === true)
                     return (
                       <a
+                        key={c.cmd}
                         target="_blank"
                         rel="noreferrer"
                         className="text-yellow-500"
